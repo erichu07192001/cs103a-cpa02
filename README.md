@@ -1,4 +1,4 @@
-# CS103a Express App Demo
+# CS103a -cpa02
 
 This is a starter project which has a simple authentication module 
 and provides access to a mongoose database in the cloud.
@@ -27,5 +27,6 @@ nodemon
 ```
 
 ## Video of our project working
-[Click here to view a video of our project in action](https://brandeis.zoom.us/rec/share/wdsiw4N05radcahI8EoRlW79uQlcAmJ7fd5MQ5AUm4p-X1D4xTjfEcarHamyTs2d.RKDBBFb1KRwS7XxD)
+ADD VIDEO IN LATER
+[Click here to view a video of our project in action]()
 
