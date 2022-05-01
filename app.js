@@ -34,8 +34,16 @@ const courses = require('./public/data/courses20-21.json')
 
 const mongoose = require( 'mongoose' );
 //const mongodb_URI = 'mongodb://localhost:27017/cs103a_todo'
-const mongodb_URI = 'mongodb+srv://erichu:erichu@brandeis.edu@cluster0.nv9s4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority' // personal mongoose database
+//const mongodb_URI = 'mongodb+srv://erichu:erichu@brandeis.edu@cluster0.nv9s4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority' // personal mongoose database
 //mongodb+srv://cs103a:<password>@cluster0.kgugl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+
+// Mongoose protecting the database through enviorment variables
+const mongodb_URI = process.env.mongodb_URI
+mongoose.connect( mongodb_URI,
+              { useNewUrlParser: true, useUnifiedTopology: true } );
+// fix deprecation warnings....
+mongoose.set('useFindAndModify', false); 
+mongoose.set('useCreateIndex', true);
 
 mongoose.connect( mongodb_URI, { useNewUrlParser: true, useUnifiedTopology: true } );
 // fix deprecation warnings
