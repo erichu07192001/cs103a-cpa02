@@ -34,7 +34,7 @@ const courses = require('./public/data/courses20-21.json')
 
 const mongoose = require( 'mongoose' );
 //const mongodb_URI = 'mongodb://localhost:27017/cs103a_todo'
-const mongodb_URI = 'mongodb+srv://cs_sj:BrandeisSpr22@cluster0.kgugl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const mongodb_URI = 'mongodb+srv://erichu:erichu@brandeis.edu@cluster0.nv9s4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority' // personal mongoose database
 //mongodb+srv://cs103a:<password>@cluster0.kgugl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 
 mongoose.connect( mongodb_URI, { useNewUrlParser: true, useUnifiedTopology: true } );
@@ -381,6 +381,42 @@ app.get('/schedule/remove/:courseId',
 )
 
 
+/**
+ * CPA02 routes
+ */
+
+app.get('/leaderboard',
+  async (req,res,next) => {
+    try{
+      const scores = await LeaderboardItem.find({}).sort({score: 'descending'});
+      res.locals.scores = scores;
+      //res.json(scores)
+      res.render('leaderboard');
+    }
+    catch(e){
+      next(e);
+    }
+  }
+)
+
+app.post('/leaderboard',
+  async (req,res,next) => {
+    try{
+      const {name,score, description} = req.body;
+      const userId = res.locals.user._id
+      const createdAt = new Date();
+      let newScore = {userId, name, description, score, createdAt}
+      let addScore = new LeaderboardItem(newScore)
+      await addScore.save()
+      res.redirect('/leaderboard')
+    }
+    catch(e){
+      next(e)
+    }
+  }
+)
+
+
 // here we catch 404 errors and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -407,6 +443,8 @@ app.set("port", port);
 
 // and now we startup the server listening on that port
 const http = require("http");
+const LeaderboardItem = require("./models/LeaderboardItem");
+const req = require("express/lib/request");
 const server = http.createServer(app);
 
 server.listen(port);

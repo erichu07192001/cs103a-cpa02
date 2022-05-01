@@ -1,0 +1,37 @@
+
+<h2>Leaderboard</h2>
+<div class="row">
+    <!--Add leaderboard information from database-->
+    <div class="col">
+        <table class = 'table table-bordered table-striped'>
+            <thead>
+                <tr>
+                    <th>Score</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <% scores.forEach(score => {%>
+            <tbody>
+                <td><%= score.score %></td>
+                <td><%= score.name %></td>
+                <td><%= score.description %></td>
+                <td><%= score.createdAt %></td>
+            </tbody>
+            <% }) %>
+        </table>
+    </div>
+    
+    <!-- Input information-->
+    <div class = "col">
+        <form method="post" action="/leaderboard">
+            Name: <input type="text" name="name"><br>
+            Score: <input type="number" name="score"><br>
+            Description: <textarea name="description" cols="30" rows="10"></textarea>
+            <input type="submit">
+        </form>
+    </div>
+</div>
+
+
