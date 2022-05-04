@@ -30,3 +30,5 @@ nodemon
 ADD VIDEO IN LATER
 [Click here to view a video of our project in action]()
 
+## Checkout the live version on Heroku
+https://secret-oasis-71476.herokuapp.com/
