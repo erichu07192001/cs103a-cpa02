@@ -3,6 +3,9 @@
 This is a starter project which has a simple authentication module 
 and provides access to a mongoose database in the cloud.
 
+On the homepage, click the link to open up the leaderboard.
+From there, it's just a simple leaderboard that is connected to the mongoose database cloud and will sort by the score.
+
 ## Installation
 Download the project from github and download nodejs and npm from https://nodejs.org
 and cd into the folder
