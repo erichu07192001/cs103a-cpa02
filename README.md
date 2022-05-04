@@ -27,8 +27,7 @@ nodemon
 ```
 
 ## Video of our project working
-ADD VIDEO IN LATER
-[Click here to view a video of our project in action]()
+https://brandeis.zoom.us/rec/share/mdinaDaxUL3Obu6dZ_Cj4h5wqxPbA6ykalTH4R3FkcqBycbOJpmG46XOGrIfeKOL.ey-OXZA54spUNzyN?startTime=1651685997000
 
 ## Checkout the live version on Heroku
 https://secret-oasis-71476.herokuapp.com/
